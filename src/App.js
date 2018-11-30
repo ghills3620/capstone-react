@@ -47,7 +47,8 @@ class App extends Component {
         {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
 
         <br/>
-
+        (/* this only shows to the signed in user*/)
+        {user && <p>hey</p>}
         <Link to='/movies'><button>movies</button></Link>
 
         <main className="container">
