@@ -71,7 +71,7 @@ class App extends Component {
           <Route exact path="/wods/new" component={WodNew} />
           <Route exact path="/wods/:id" component={WodShow} />
           <Route exact path="/wods/:id/update" component={WodUpdate} />
-          <Route exact path="/wods/clock" component={Clock} />
+          <Route path="/clock" component={Clock} />
         </Switch>
       </React.Fragment>
     )
