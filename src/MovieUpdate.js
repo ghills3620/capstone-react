@@ -6,10 +6,9 @@ class MovieUpdate extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      movie: {
-        title:'',
-        director: '',
-        year: ''
+      wod: {
+        metcon: '',
+        result: ''
       }
     }
   }
@@ -24,32 +23,32 @@ class MovieUpdate extends React.Component {
     //
     // newMovie[name]= value
 
-    const newMovie = { ...this.state.movie, [event.target.name]: event.target.value }
+    const newMovie = { ...this.state.wod, [event.target.name]: event.target.value }
 
     this.setState({
-      movie: newMovie
+      wod: newMovie
     })
   }
 
   handleSubmit = async (event) => {
     event.preventDefault()
 
-    const movie = this.state.movie
+    const wod = this.state.wod
     const id = this.props.match.params.id
 
-    const response = await axios.put(`http://localhost:4741/movies/${id}`, { movie })
+    const response = await axios.put(`http://localhost:4741/wods/${id}`, { wod })
 
     this.setState(this.baseState)
     // this.setState({flashMessage: 'Movie Updated', movie: this.baseMovie})
-    this.props.history.push('/movies')
+    this.props.history.push('/wods')
 
     console.log(response)
   }
 
   async  componentDidMount() {
     const id = this.props.match.params.id
-    const response = await axios.get(`http://localhost:4741/movies/${id}`)
-    this.setState({movie:response.data.movie})
+    const response = await axios.get(`http://localhost:4741/wods/${id}`)
+    this.setState({wod:response.data.wod})
   }
 
   render () {
@@ -61,11 +60,10 @@ class MovieUpdate extends React.Component {
 
         <form>
           <label htmlFor='title'>Title</label>
-          <input id='title' type='text' onChange={this.handleChange} value={this.state.movie.title} name='title' placeholder='title'/>
-          <input type='text' onChange={this.handleChange} value={this.state.movie.director} name='director' placeholder='director'/>
-          <input type='date' onChange={this.handleChange} value={this.state.movie.year} name='year' placeholder='year'/>
+          <input type='text' onChange={this.handleChange} value={this.state.wod.metcon} name='metcon' placeholder='metcon'/>
+          <input type='text' onChange={this.handleChange} value={this.state.wod.result} name='result' placeholder='result'/>
           <input type='submit' onClick={this.handleSubmit}/>
-          <Link to={`/movies/${this.props.match.params.id}`}><button>Back</button></Link>
+          <Link to={`/wods/${this.props.match.params.id}`}><button>Back</button></Link>
         </form>
 
       </React.Fragment>

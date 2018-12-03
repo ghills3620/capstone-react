@@ -49,7 +49,7 @@ class App extends Component {
         <br/>
         (/* this only shows to the signed in user*/)
         {user && <p>hey</p>}
-        <Link to='/movies'><button>movies</button></Link>
+        <Link to='/wods'><button>Public White Board</button></Link>
 
         <main className="container">
           <Route path='/sign-up' render={() => (
@@ -66,10 +66,10 @@ class App extends Component {
           )} />
         </main>
         <Switch>
-          <Route exact path="/movies" component={MovieIndex} />
-          <Route exact path="/movies/new" component={MovieNew} />
-          <Route exact path="/movies/:id" component={MovieShow} />
-          <Route exact path="/movies/:id/update" component={MovieUpdate} />
+          <Route exact path="/wods" component={MovieIndex} />
+          <Route exact path="/wods/new" component={MovieNew} />
+          <Route exact path="/wods/:id" component={MovieShow} />
+          <Route exact path="/wods/:id/update" component={MovieUpdate} />
         </Switch>
       </React.Fragment>
     )

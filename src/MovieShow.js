@@ -7,10 +7,9 @@ class MovieShow extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      movie: {
-        title:'',
-        director: '',
-        year: ''
+      wod: {
+        metcon: '',
+        result: ''
       }
     }
   }
@@ -18,10 +17,10 @@ class MovieShow extends React.Component {
 
   async componentDidMount() {
     const id = this.props.match.params.id
-    const response = await axios.get(`http://localhost:4741/movies/${id}`)
-    const movie = response.data.movie
+    const response = await axios.get(`http://localhost:4741/wods/${id}`)
+    const wod = response.data.wod
     this.setState({
-      movie: movie
+      wod: wod
     })
   }
 
@@ -29,10 +28,9 @@ class MovieShow extends React.Component {
     return(
       <React.Fragment>
         <h1>Show Movie:</h1>
-        <p>{this.state.movie.title}</p>
-        <p>{this.state.movie.director}</p>
-        <p>{this.state.movie.year}</p>
-        <Link to={`/movies/${this.props.match.params.id}/update`}><button>Update</button></Link>
+        <p>Metcon: {this.state.wod.metcon}</p>
+        <p>Results: {this.state.wod.result}</p>
+        <Link to={`/wods/${this.props.match.params.id}/update`}><button>Update</button></Link>
       </React.Fragment>
     )
   }
