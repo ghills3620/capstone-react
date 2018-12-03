@@ -1,0 +1,200 @@
+@background: #99d4f0;
+@textColor: #ffffcc;
+@alertRed: #be0031;
+@bigFont: 15vh;
+@fontFamily: PT Mono, monospace;
+
+@keyframes alertColor {
+  from {
+    color: @textColor;
+  }
+  to {
+    color: @alertRed;
+  }
+}
+
+@keyframes alertFontSize {
+  from {
+    font-size: @bigFont;
+  }
+  to {
+    font-size: @bigFont + 3;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.flexCenter {
+  display: flex;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: @fontFamily;
+  background-color: @background;
+  color: @textColor;
+  animation: fadeIn;
+  animation-duration: 1.5s;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.btn {
+  border: none;
+  cursor: pointer;
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 3px;
+  transition: all 200ms ease;
+}
+
+.menu {
+  .flexCenter;
+  background: none;
+  justify-content: space-between;
+  height: 50px;
+  font-size: 18px;
+  // font-weight: bold;
+  margin-bottom: 10px;
+  @media (min-width: 500px) {
+    font-size: 28px;
+  }
+}
+
+.menu-select {
+  border-bottom-style: solid;
+}
+
+.timer,
+.tabata,
+.emom {
+  text-align: center;
+  transition: color 200ms ease;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.timer {
+  border-right-style: solid;
+  border-color: #fff;
+}
+.bigTimer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.emom {
+  border-left-style: solid;
+  border-color: #fff;
+}
+
+.select {
+  .flexCenter;
+}
+
+.main {
+  .flexCenter;
+  flex-direction: column;
+}
+
+.selectContainer {
+  .flexCenter;
+  flex-direction: column;
+  padding-bottom: 0.5em;
+  .frameTitle {
+    font-size: 22px;
+    padding-bottom: 0.5em;
+  }
+}
+
+.controlsContainer {
+  .flexCenter;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  padding: 0.5em;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.controls {
+  display: flex;
+  flex-grow: 1;
+  align-self: flex-start;
+}
+
+.elapsed {
+  .flexCenter;
+  flex-direction: column;
+  .elapsedTitle {
+    font-size: 22px;
+  }
+}
+
+.tattler {
+  .flexCenter;
+  font-size: 5em;
+  font-weight: bold;
+  width: 100%;
+  height: 30vh;
+  justify-content: center;
+  margin-bottom: 5vh;
+}
+
+.alertAnimation {
+  animation-name: alertColor, alertFontSize;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.timerControls {
+  .flexCenter;
+  align-self: center;
+  .btnTimer {
+    margin: 0.5em;
+    font-size: 20px;
+    width: 50px;
+    cursor: pointer;
+  }
+}
+
+.currentlySelected {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0px 10px 0px 10px;
+}
+
+.up:hover,
+#plus:hover,
+#minus:hover,
+.play:hover,
+.reset:hover {
+  color: @background !important;
+}
+
+.flip {
+  transition: all 0.5s linear;
+  -ms-transform: rotate(180deg); /* IE 9 */
+  -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+  transform: rotate(180deg);
+}
+
+.unflip {
+  transition: all 0.5s linear;
+}
+.colon {
+  transform: translateY(-9px);
+}

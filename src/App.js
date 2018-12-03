@@ -13,6 +13,7 @@ import WodIndex from './WodIndex.js'
 import WodNew from './WodNew.js'
 import WodShow from './WodShow.js'
 import WodUpdate from './WodUpdate.js'
+import Clock from './Clock/Home.js'
 
 class App extends Component {
   constructor () {
@@ -70,6 +71,7 @@ class App extends Component {
           <Route exact path="/wods/new" component={WodNew} />
           <Route exact path="/wods/:id" component={WodShow} />
           <Route exact path="/wods/:id/update" component={WodUpdate} />
+          <Route exact path="/wods/clock" component={Clock} />
         </Switch>
       </React.Fragment>
     )
