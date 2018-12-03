@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 
-class MovieShow extends React.Component {
+class WodShow extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -27,7 +27,7 @@ class MovieShow extends React.Component {
   render() {
     return(
       <React.Fragment>
-        <h1>Show Movie:</h1>
+        <h1>Show Wod:</h1>
         <p>Metcon: {this.state.wod.metcon}</p>
         <p>Results: {this.state.wod.result}</p>
         <Link to={`/wods/${this.props.match.params.id}/update`}><button>Update</button></Link>
@@ -36,4 +36,4 @@ class MovieShow extends React.Component {
   }
 }
 
-export default MovieShow
+export default WodShow

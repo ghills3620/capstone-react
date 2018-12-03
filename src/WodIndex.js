@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 
-class MovieIndex extends React.Component {
+class WodIndex extends React.Component {
   constructor (props) {
     super(props)
     this.state = { wods: [] }
@@ -24,8 +24,8 @@ class MovieIndex extends React.Component {
     const response = axios.delete(`http://localhost:4741/wods/${id}`)
     console.log(response)
 
-    const updatedMoviesList = this.state.wods.filter(wod => wod.id !== id)
-    this.setState({wods:updatedMoviesList})
+    const updatedWodsList = this.state.wods.filter(wod => wod.id !== id)
+    this.setState({wods:updatedWodsList})
   }
 
 
@@ -49,8 +49,8 @@ class MovieIndex extends React.Component {
     })
     return (
       <React.Fragment>
-        <h1>Movie Index</h1>
-        <Link to="/wods/new"><button>Add a Movie</button></Link>
+        <h1>Wod Index</h1>
+        <Link to="/wods/new"><button>New Workout</button></Link>
         <table>
           <tbody>
 
@@ -63,4 +63,4 @@ class MovieIndex extends React.Component {
   }
 }
 
-export default MovieIndex
+export default WodIndex

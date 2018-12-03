@@ -9,10 +9,10 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 
-import MovieIndex from './MovieIndex.js'
-import MovieNew from './MovieNew.js'
-import MovieShow from './MovieShow.js'
-import MovieUpdate from './MovieUpdate.js'
+import WodIndex from './WodIndex.js'
+import WodNew from './WodNew.js'
+import WodShow from './WodShow.js'
+import WodUpdate from './WodUpdate.js'
 
 class App extends Component {
   constructor () {
@@ -66,10 +66,10 @@ class App extends Component {
           )} />
         </main>
         <Switch>
-          <Route exact path="/wods" component={MovieIndex} />
-          <Route exact path="/wods/new" component={MovieNew} />
-          <Route exact path="/wods/:id" component={MovieShow} />
-          <Route exact path="/wods/:id/update" component={MovieUpdate} />
+          <Route exact path="/wods" component={WodIndex} />
+          <Route exact path="/wods/new" component={WodNew} />
+          <Route exact path="/wods/:id" component={WodShow} />
+          <Route exact path="/wods/:id/update" component={WodUpdate} />
         </Switch>
       </React.Fragment>
     )
