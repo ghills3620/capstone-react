@@ -40,7 +40,14 @@ class WodNew extends React.Component {
 
     const wod = this.state.wod
 
-    const response = await axios.post('http://localhost:4741/wods', { wod })
+    const response = await axios ({
+      method:'post',
+      url: 'http://localhost:4741/wods',
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      },
+      wod
+    })
 
     this.setState(this.baseState)
     // this.setState({flashMessage: 'Wod Created', movie: this.baseWod})

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import AuthenticatedRoute from './App.js'
 
 
 class WodIndex extends React.Component {
@@ -9,10 +10,19 @@ class WodIndex extends React.Component {
     this.state = { wods: [] }
   }
 
-  async componentDidMount() {
-    const response = await axios.get('http://localhost:4741/wods')
+  async componentDidMount(event) {
+    console.log(event)
+    const user = this.props.user
+    const response = await axios ({
+      method:'get',
+      url: 'http://localhost:4741/wods',
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+    console.log(response)
     this.setState({wods:response.data.wods})
-    // axios.get('http://localhost:4741/movies')
+    // axios.get('http://localhost:4741/wods')
     // .then(response => {
     //   this.setState({movies:response.data.movies})
     // })

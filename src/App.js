@@ -66,8 +66,12 @@ class App extends Component {
           )} />
         </main>
         <Switch>
-          <Route exact path="/wods" component={WodIndex} />
-          <Route exact path="/wods/new" component={WodNew} />
+          <AuthenticatedRoute user={user} path="/wods" render={() => (
+            <WodIndex flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path="/wods/new" render={() => (
+            <WodNew flash={this.flash} user={user} />
+          )} />
           <Route exact path="/wods/:id" component={WodShow} />
           <Route exact path="/wods/:id/update" component={WodUpdate} />
         </Switch>
