@@ -14,6 +14,7 @@ import WodNew from './WodNew.js'
 import WodShow from './WodShow.js'
 import WodUpdate from './WodUpdate.js'
 import Clock from './Clock/Home.js'
+import SugarWodApi from './SugarWodApi.js'
 
 class App extends Component {
   constructor () {
@@ -38,6 +39,8 @@ class App extends Component {
     this.messageTimeout = setTimeout(() => this.setState({flashMessage: null
     }), 2000)
   }
+
+
 
   render () {
     const { flashMessage, flashType, user } = this.state
@@ -72,6 +75,7 @@ class App extends Component {
           <Route exact path="/wods/:id" component={WodShow} />
           <Route exact path="/wods/:id/update" component={WodUpdate} />
           <Route path="/clock" component={Clock} />
+          <Route path="/api" component={SugarWodApi} />
         </Switch>
       </React.Fragment>
     )

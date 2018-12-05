@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Img from 'react-image'
+import { Navbar,  MenuItem, NavItem, NavDropdown, Nav } from 'react-bootstrap'
 
 import './Header.scss'
 
@@ -23,15 +25,31 @@ const alwaysOptions = (
   </React.Fragment>
 )
 
+const myImg = () => <Img src="http://www.redstickcrossfit.com/wp-content/uploads/2018/03/Image.png" width={100}
+  height={100}/>
+
 const Header = ({ user }) => (
-  <header className="main-header">
-    <h1>Red Stick Crossfit</h1>
-    <nav>
-      { user && <span>Welcome, {user.email}</span>}
-      { user ? authenticatedOptions : unauthenticatedOptions }
-      { alwaysOptions }
-    </nav>
-  </header>
+  <Navbar>
+    <Navbar.Header>
+      <Navbar.Brand>
+        <a href="#/"> { myImg() }</a>
+      </Navbar.Brand>
+      <Navbar.Toggle />
+    </Navbar.Header>
+    <Navbar.Collapse>
+      <Nav pullRight>
+        <NavItem eventKey={1} href="#">
+          { user && <span>Welcome, {user.email}</span>}
+        </NavItem>
+        <NavItem eventKey={2} href="#">
+          { user ? authenticatedOptions : unauthenticatedOptions }
+        </NavItem>
+        <NavItem eventKey={3} href="#">
+          { alwaysOptions }
+        </NavItem>
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
 )
 
 export default Header
