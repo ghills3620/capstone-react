@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import AuthenticatedRoute from './App.js'
 
 class WodUpdate extends React.Component {
   constructor (props) {
@@ -36,10 +37,20 @@ class WodUpdate extends React.Component {
     const wod = this.state.wod
     const id = this.props.match.params.id
 
-    const response = await axios.put(`http://localhost:4741/wods/${id}`, { wod })
-
+    const user = this.props.user
+    const response = await axios ({
+      method:'put',
+      url: `http://localhost:4741/wods/${id}`,
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      },
+      data:{ wod: {
+        metcon: wod.metcon,
+        result: wod.result
+      }},
+    })
     this.setState(this.baseState)
-    // this.setState({flashMessage: 'Wod Updated', movie: this.baseWod})
+    // this.setState({flashMessage: 'Wod Updated', wod: this.baseWod})
     this.props.history.push('/wods')
 
     console.log(response)

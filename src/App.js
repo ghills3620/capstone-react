@@ -47,8 +47,7 @@ class App extends Component {
         {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
 
         <br/>
-        (/* this only shows to the signed in user*/)
-        {user && <p>hey</p>}
+        {user && <p>Believe in the Burpee</p>}
         <Link to='/wods'><button>Public White Board</button></Link>
 
         <main className="container">
@@ -66,10 +65,8 @@ class App extends Component {
           )} />
         </main>
         <Switch>
-          <AuthenticatedRoute user={user} path="/wods" render={() => (
-            <WodIndex flash={this.flash} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path="/wods/new" render={() => (
+          <Route exact path="/wods" component={WodIndex} />
+          <AuthenticatedRoute user={user} path='/wods/new' render={() => (
             <WodNew flash={this.flash} user={user} />
           )} />
           <Route exact path="/wods/:id" component={WodShow} />

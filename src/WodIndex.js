@@ -16,11 +16,7 @@ class WodIndex extends React.Component {
     const response = await axios ({
       method:'get',
       url: 'http://localhost:4741/wods',
-      headers: {
-        'Authorization': `Token token=${user.token}`
-      }
     })
-    console.log(response)
     this.setState({wods:response.data.wods})
     // axios.get('http://localhost:4741/wods')
     // .then(response => {

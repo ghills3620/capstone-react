@@ -39,19 +39,23 @@ class WodNew extends React.Component {
     event.preventDefault()
 
     const wod = this.state.wod
-
+    console.log(wod)
+    const user = this.props.user
     const response = await axios ({
       method:'post',
       url: 'http://localhost:4741/wods',
       headers: {
         'Authorization': `Token token=${user.token}`
       },
-      wod
+      data:{ wod: {
+        metcon: wod.metcon,
+        result: wod.result
+      }},
     })
 
     this.setState(this.baseState)
-    // this.setState({flashMessage: 'Wod Created', movie: this.baseWod})
-    this.props.history.push('/wods')
+    // this.setState({flashMessage: 'Wod Created', wod: this.baseWod})
+    // this.props.history.push('/wods')
 
     // console.log(response)
   }
