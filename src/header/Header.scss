@@ -6,11 +6,16 @@ $charcoal: #bbb;
   display: flex;
   height: 100px;
   padding: 0 20px;
+  background: rgb(60, 200, 225);
+  color: rgb(255, 255, 255);
+  font-family: 'Bungee', cursive;
+
 
   a,
   span {
     font-size: 1.2em;
     margin: 0 15px;
+    color: rgb(255, 255, 255);
   }
 }
 
@@ -19,6 +24,22 @@ $charcoal: #bbb;
   display: flex;
   flex-grow: 1;
   justify-content: flex-end;
+}
+
+.logo {
+  height: 50px;
+  margin-right: 12px;
+}
+
+.logo-header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+}
+
+.logo-header:hover {
+  text-decoration: none;
 }
 
 @media (max-width: 600px) {
