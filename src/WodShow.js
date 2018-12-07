@@ -1,6 +1,8 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { Navbar,  MenuItem, NavItem, NavDropdown, Nav, Table } from 'react-bootstrap'
 
 
 class WodShow extends React.Component {
@@ -28,12 +30,22 @@ class WodShow extends React.Component {
     return(
       <React.Fragment>
         <h1>Show Wod:</h1>
-        <p>Metcon: {this.state.wod.metcon}</p>
-        <p>Results: {this.state.wod.result}</p>
-        <Link to={`/wods/${this.props.match.params.id}/update`}><button>Update</button></Link>
+        <Table striped bordered condensed hover>
+          <thead>
+            <tr>
+              <td>Metcon</td>
+              <td>Results</td>
+            </tr>
+          </thead>
+          <tbody>
+            <td>{this.state.wod.metcon}</td>
+            <td>{this.state.wod.result}</td>
+          </tbody>
+          <Link to={`/wods/${this.props.match.params.id}/update`}><button>Update</button></Link>
+        </Table>
       </React.Fragment>
     )
   }
 }
 
-export default WodShow
+export default withRouter(WodShow)

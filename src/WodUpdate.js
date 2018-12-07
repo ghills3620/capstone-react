@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -32,17 +33,24 @@ class WodUpdate extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault()
-
+    console.log(event)
     const wod = this.state.wod
     const id = this.props.match.params.id
-
-    const response = await axios.put(`http://localhost:4741/wods/${id}`, { wod })
-
+    const user = this.props.user
+    const response = await axios ({
+      method:'put',
+      url: `http://localhost:4741/wods/${id}`,
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      },
+      data:{ wod: {
+        metcon: wod.metcon,
+        result: wod.result
+      }},
+    })
     this.setState(this.baseState)
-    // this.setState({flashMessage: 'Wod Updated', movie: this.baseWod})
+    // this.setState({flashMessage: 'Wod Updated', wod: this.baseWod})
     this.props.history.push('/wods')
-
-    console.log(response)
   }
 
   async  componentDidMount() {
@@ -63,7 +71,7 @@ class WodUpdate extends React.Component {
           <input type='text' onChange={this.handleChange} value={this.state.wod.metcon} name='metcon' placeholder='metcon'/>
           <input type='text' onChange={this.handleChange} value={this.state.wod.result} name='result' placeholder='result'/>
           <input type='submit' onClick={this.handleSubmit}/>
-          <Link to={`/wods/${this.props.match.params.id}`}><button>Back</button></Link>
+          { this.props.user && <Link to={`/wods/${this.props.match.params.id}`}><button>Back</button></Link> }
         </form>
 
       </React.Fragment>
@@ -72,4 +80,4 @@ class WodUpdate extends React.Component {
 
 }
 
-export default WodUpdate
+export default withRouter(WodUpdate)

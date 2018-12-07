@@ -51,8 +51,7 @@ class App extends Component {
         {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
 
         <br/>
-        (/* this only shows to the signed in user*/)
-        {user && <p>hey</p>}
+        {user && <p>Believe in the Burpee</p>}
         <Link to='/wods'><button>Public White Board</button></Link>
 
         <main className="container">
@@ -70,12 +69,17 @@ class App extends Component {
           )} />
         </main>
         <Switch>
-          <Route exact path="/wods" component={WodIndex} />
-          <Route exact path="/wods/new" component={WodNew} />
-          <Route exact path="/wods/:id" component={WodShow} />
-          <Route exact path="/wods/:id/update" component={WodUpdate} />
-          <Route path="/clock" component={Clock} />
-          <Route path="/api" component={SugarWodApi} />
+          <Route exact path="/wods" render={(props) => (<WodIndex flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/wods/new' render={(props) => (
+            <WodNew flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/wods/:id/update' render={(props) => (
+            <WodUpdate flash={this.flash} user={user} />
+          )} />
+          <Route exact path="/wods/:id" render={(props) => (
+            <WodShow flash={this.flash} user={user} />
+          )} />
         </Switch>
       </React.Fragment>
     )
