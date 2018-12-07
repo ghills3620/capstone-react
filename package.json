@@ -73,7 +73,8 @@
     "test": "node scripts/test.js --env=jsdom",
     "make-standard": "eslint --fix .",
     "nag": "eslint .",
-    "deploy": "sh scripts/deploy.sh"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -118,6 +119,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "gh-pages": "^2.0.1",
     "grunt": "^1.0.3",
     "node-sass": "^4.9.3",
     "react-image-resizer": "^1.3.0",
