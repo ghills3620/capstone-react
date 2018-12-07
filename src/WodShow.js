@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -36,4 +37,4 @@ class WodShow extends React.Component {
   }
 }
 
-export default WodShow
+export default withRouter(WodShow)

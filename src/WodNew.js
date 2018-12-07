@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { withRouter } from 'react-router-dom'
 
 
 class WodNew extends React.Component {
@@ -15,7 +16,7 @@ class WodNew extends React.Component {
       },
       flashMessage: ''
     }
-    this.basewod = this.state.wod
+    this.baseWod = this.state.wod
   }
 
   handleChange = (event) => {
@@ -37,9 +38,7 @@ class WodNew extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault()
-
     const wod = this.state.wod
-    console.log(wod)
     const user = this.props.user
     const response = await axios ({
       method:'post',
@@ -52,10 +51,10 @@ class WodNew extends React.Component {
         result: wod.result
       }},
     })
-
-    this.setState(this.baseState)
+    console.log(this.baseWod)
+    this.setState(this.baseWod)
     // this.setState({flashMessage: 'Wod Created', wod: this.baseWod})
-    // this.props.history.push('/wods')
+    this.props.history.push('/wods')
 
     // console.log(response)
   }
@@ -80,4 +79,4 @@ class WodNew extends React.Component {
   }
 }
 
-export default WodNew
+export default withRouter(WodNew)

@@ -65,12 +65,17 @@ class App extends Component {
           )} />
         </main>
         <Switch>
-          <Route exact path="/wods" component={WodIndex} />
-          <AuthenticatedRoute user={user} path='/wods/new' render={() => (
+          <Route exact path="/wods" render={(props) => (<WodIndex flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/wods/new' render={(props) => (
             <WodNew flash={this.flash} user={user} />
           )} />
-          <Route exact path="/wods/:id" component={WodShow} />
-          <Route exact path="/wods/:id/update" component={WodUpdate} />
+          <AuthenticatedRoute user={user} exact path='/wods/:id/update' render={(props) => (
+            <WodUpdate flash={this.flash} user={user} />
+          )} />
+          <Route exact path="/wods/:id" render={(props) => (
+            <WodShow flash={this.flash} user={user} />
+          )} />
         </Switch>
       </React.Fragment>
     )

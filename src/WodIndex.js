@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import AuthenticatedRoute from './App.js'
-
 
 class WodIndex extends React.Component {
   constructor (props) {
@@ -11,8 +9,6 @@ class WodIndex extends React.Component {
   }
 
   async componentDidMount(event) {
-    console.log(event)
-    const user = this.props.user
     const response = await axios ({
       method:'get',
       url: 'http://localhost:4741/wods',
@@ -22,13 +18,18 @@ class WodIndex extends React.Component {
     // .then(response => {
     //   this.setState({movies:response.data.movies})
     // })
-    console.log(response.data.wods)
+    // console.log(response.data.wods)
   }
 
   async handleDelete(event, id) {
     event.preventDefault()
-    const response = axios.delete(`http://localhost:4741/wods/${id}`)
-    console.log(response)
+    const user = this.props.user
+    const response = await axios ({
+      method:'delete',
+      url: `http://localhost:4741/wods/${id}`,
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }})
 
     const updatedWodsList = this.state.wods.filter(wod => wod.id !== id)
     this.setState({wods:updatedWodsList})
@@ -42,13 +43,16 @@ class WodIndex extends React.Component {
       return (
         <tr key={id}>
           <td>
-            <Link to={`/wods/${id}`}>Metcon: {metcon}</Link>
+          
           </td>
-          <td>Results: {result}</td>
           <td>
-            <a href="#" onClick={ (event)=> {
+            <Link to={`/wods/${id}`} user={this.props.user}>{metcon}</Link>
+          </td>
+          <td>{result}</td>
+          <td>
+            { this.props.user && <a href="#" onClick={ (event)=> {
               return this.handleDelete(event, id)
-            }}>Delete</a>
+            }}>Delete</a> }
           </td>
         </tr>
       )
@@ -56,7 +60,7 @@ class WodIndex extends React.Component {
     return (
       <React.Fragment>
         <h1>Wod Index</h1>
-        <Link to="/wods/new"><button>New Workout</button></Link>
+        { this.props.user && <Link to="/wods/new"><button>New Workout</button></Link> }
         <table>
           <tbody>
 
