@@ -1,97 +1,112 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+## What is Wodify?
 
-# react-auth-template
+If you've ever been to a CrossFit box (aka gym) and taken part in a WOD (workout of the day), you'll know that the whiteboard is an integral part of the whole experience: It's where the WOD is written out beforehand and where everyone's results are recorded afterward. So why get rid of whiteboards at CrossFit facilities all over the country? Because, they say, they've got something better. Needless to say, we're intrigued.
 
-A front-end framework template for starting projects with a recent version of
-either the [Rails API Template](https://git.generalassemb.ly/ga-wdi-boston/rails-api-template)
-or the [Express API Template](https://git.generalassemb.ly/ga-wdi-boston/express-api-template).
+It's called Wodify, and here's how it works: Gym owners can purchase the software that helps them manage their members, along with a digital kiosk and display screen that replaces the gym's traditional whiteboard. Gym members, meanwhile, all get a free app for their smartphone. They'll use that app to check into class, record their WOD results, and manage their account; they can even sync the app with their social networks, so it's easier to brag about, errrr, share out their latest accomplishments via social media. (Forgot your phone? You can also use the kiosk to enter your info.)
 
-## Installation
+Now, this isn't the first program out there designed for CrossFitters to use for tracking their workouts; a quick look through the App store will verify that. But Wodify is different because it connects everyone at a specific box together with the same program that's tailored just for the particular group; you wouldn't have to tell your app what today's WOD is, for example, because it already knows. It also helps with more practical things, like paying your bill and tracking your attendance. And, unlike a white board that gets wiped clean every day, the app automatically stores everyone's results (and workouts, duh) for future reference.
 
-1. [Download](../../archive/master.zip) this template.
-1. Unzip and rename the template directory (`unzip ~/Downloads/ember-auth-template-master.zip`).
-1. Move into the new project and `git init`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace `ga-wdi-boston.react-auth-template` in `package.json` with your
-   projects name.
-1. Replace the `"homepage"` field in `package.json` with your (public) Github
-   account name and repository name.
-1. Install dependencies with `npm install`.
-1. `git add` and `git commit` your changes.
-1. Run the development server with `npm start`.
+## Technologies Used
+[Ruby on Rails](https://rubyonrails.org/)
+  - is a server-side web application framework written in Ruby under the MIT License. Rails is a model–view–controller (MVC) framework, providing default structures for a database, a web service, and web pages
 
-## About
+[Heroku](https://heroku.com/)
+  - is a cloud platform that lets companies build, deliver, monitor and scale apps.
 
-This template is derived from GA Boston's [react-template](https://git.generalassemb.ly/ga-wdi-boston/react-template).
-Most of the development dependencies, such as linters, SCSS compiler, Webpack
-config, NPM scripts, etc in this repo come from there.
+[JSX](https://reactjs.org/docs/introducing-jsx.html)
+  - is a preprocessor step that adds XML syntax to JavaScript. You can definitely use React without JSX but JSX makes React a lot more elegant.
 
-It includes all the components and routes needed to sign up, sign in, change
-passwords, and sign out of an API built with either template linked above, with
-no need for modification.
+[Bootstrap](https://getbootstrap.com/)
+  - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery.
 
-**NOTE**: You should customize the included components to suit you app! They're
-provided as a guide and a bare minimum of functionality and style. Consider
-changing the provided SCSS styles, modifying the auth code, improving the flash
-messages, etc.
+## Unsolved Problems/User Stories
 
-## Structure
+Version 1
+ - STYLING!!!!
+ - Being able to style the site as I would like it to look
+ - Giving the user the ability to have a user name displayed instead of their email
+ - More user friendly UI experience
 
-Currently, the top-level `App` component stores the currently authenticated
-user in state, as well as data related to the flash messages. `App` renders the
-`Header` component, and a list of routes, each of which render a component from
-`src/auth/components`. The `auth` directory has two non-component files, `api`
-and `messages`, which contain all the needed `fetch` calls, and messages to
-display when API calls succeed or fail, respectively.
+Version 2
+ - Non signed in User
 
-We recommend following this pattern in your app. For instance, if you are making
-an app that keeps track of books, you might want a `books` directory next to
-`auth`, which contains its own `api` and `messages` files, as well as a
-`components` directory.
+  - As a non signed in user, I want to be able to view the current workout of the day
 
-## Features
+ - Signed in User
 
-### `<AuthenticatedRoute />`
+  - As a signed in user, I want to be able to view the current workout of the day
+  - As a signed in user, I want to be able to input pre-made/detailed results
+    - type of workout
+    - named or custom workout
+  - As a signed in user, I want to be able to be able to see a table of named workouts
 
-This template contains a handy component for creating routes that require a
-user to be authenticated before visiting. This component lives in
-`src/auth/components/AuthenticatedRoute.js` and is already required in `App`.
-It's a thin wrapper around React Router's `<Route />` component. The only
-difference is that it expects a prop called `user`, and if that prop is falsy,
-it will render a `<Redirect />` that takes the user to `/`. **If you want to use
-it, you must pass it the currently authenticated as a prop!**
+[ERD's/Wire Frame](https://imgur.com/a/tpN09xp)
 
-It supports both the `component=` and `render=` attributes, but like `<Route />`
-it will not forward props to the component if you use `component=`.
+## Project Planning
 
-### Flash Messages
+Planning
+- []  Review full-stack-project-practice
+- []  Review full-stack-project-modeling-lab
+- []  Create User Stories
+- []  Create Wire Frames
+- []  Create ERD
 
-The `App` component has a rudimentary version of flash messages. To use it,
-pass `this.flash` into a subcomponent of `App` as a prop and call it from there.
-It expects two arguments: a message to display, and a message type, which is one
-of `'flash-success'`, `'flash-warning'`, and `'flash-error'` which make the
-message green, yellow, and red, respectively. You must pass one of these types.
-You can add more types by adding more CSS rules in `App.scss`.
+Set Up
+API
+- []  Download Rails API Template
+- []  Create a Github Repository
+- []  Deploy to Heroku
+Client
+- []  Download Browser Template
+- []  Create a Github Repository
+- []  Deploy to Github Pages
 
-In the auth components, flash messages are used in conjunction with the
- `auth/messages` file to select from a list of predefined success/failure
- messages. To undertand how to do this, look at the definition of `flash` in
- `App.js`, the `signUp` method in `auth/components/SignUp.js`, and the
- `auth/messages.js` file.
+API
+- []  Review rails-api-one-to-many or rails-api-many-to-many
+- []  Scaffold your resource
+- []  Test your resource's end points with curl scripts
+- []  Update resource controller to inherit from Protected or OpenRead controller
+- []  Test your resource's end points with curl scripts
+- []  Add the relationship to a User
+- []  Add User ownership to resource controller
 
- To change the duration of the message, replace `2000` with a value of your
- choice (in milliseconds) in the `flash` method definition in `App.js`.
+Client
+- []  Review api-token-auth
+- []  Sign Up (curl then web app)
+- []  Sign In (curl then web app)
+- []  Change Password (curl then web app)
+- []  Sign Out (curl then web page)
+- []  All API calls have success or failure messages
+- []  Review query-ajax-post
+- []  Create resource (curl then web app)
+- []  Get all of their owned resources (curl then web app)
+- []  Delete single resource (curl then web app)
+- []  Update single resource (curl then web app)
 
- ### `src/apiConfig.js`
+Final Touches
+- []  README
+- []  Troubleshoot/Debug
+- []  Style
 
- Just like in
-[browser-template](https://git.generalassemb.ly/ga-wdi-boston/browser-template),
-this file will determine whether you're in a production or development
-environment and choose an API URL accordingly. Don't forget to replace the
-`production` URL with your deployed API's URL.
+## The Process
 
-## [License](LICENSE)
+ The process of doing this project was a lot less painstaking than the last due to
+ planning.  From the very begginning I started with knowing excatly what it was that
+ I needed to get done and sticking to the task. Small goals large victories was how I
+ was able to complete this project. One small step at a time, I have very ambitious goals
+ with this project but at my level the first step was to find the simplest things and
+ to do those and get it working. It doesnt matter how it looks at first it just needs to
 
-1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
-1.  All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+I ran in to issues nearly everydary working on this application. To solve these
+problems I looked back at the resources I had and was given. What toos are already
+built for me that I can take advantage of is something I looked at for every issue.
+Can I take 15 extra minutes to learn more about this and get it to work, so that my
+code is more adaptable for future itterations. Also lets not forget I didnt have to
+do this alone, fellow devs, stack overflow, and google were all at my finger tips
+help. Ive learned alot during this process and feel more confident after finishing.
+
+## Links
+
+- [Client]()
+- [Server](https://arcane-woodland-92648.herokuapp.com/)
+- [Client Read Me](https://github.com/ghills3620/capstone-backend/)
