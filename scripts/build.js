@@ -55,23 +55,23 @@ measureFileSizesBeforeBuild(paths.appBuild)
   .then(
     ({ stats, previousFileSizes, warnings }) => {
       if (warnings.length) {
-        //console.log(chalk.yellow('Compiled with warnings.\n'))
-        //console.log(warnings.join('\n\n'))
-        //console.log(
+        console.log(chalk.yellow('Compiled with warnings.\n'))
+        console.log(warnings.join('\n\n'))
+        console.log(
           '\nSearch for the ' +
             chalk.underline(chalk.yellow('keywords')) +
             ' to learn more about each warning.'
         )
-        //console.log(
+        console.log(
           'To ignore, add ' +
             chalk.cyan('// eslint-disable-next-line') +
             ' to the line before.\n'
         )
       } else {
-        //console.log(chalk.green('Compiled successfully.\n'))
+        console.log(chalk.green('Compiled successfully.\n'))
       }
 
-      //console.log('File sizes after gzip:\n')
+      console.log('File sizes after gzip:\n')
       printFileSizesAfterBuild(
         stats,
         previousFileSizes,
@@ -79,7 +79,7 @@ measureFileSizesBeforeBuild(paths.appBuild)
         WARN_AFTER_BUNDLE_GZIP_SIZE,
         WARN_AFTER_CHUNK_GZIP_SIZE
       )
-      //console.log()
+      console.log()
 
       const appPackage = require(paths.appPackageJson)
       const publicUrl = paths.publicUrl
@@ -94,15 +94,15 @@ measureFileSizesBeforeBuild(paths.appBuild)
       )
     },
     err => {
-      //console.log(chalk.red('Failed to compile.\n'))
+      console.log(chalk.red('Failed to compile.\n'))
       printBuildError(err)
       process.exit(1)
     }
   )
 
-// Create the production build and print the deployment instructions.
+Create the production build and print the deployment instructions.
 function build(previousFileSizes) {
-  //console.log('Creating an optimized production build...')
+  console.log('Creating an optimized production build...')
 
   const compiler = webpack(config)
   return new Promise((resolve, reject) => {
@@ -112,8 +112,8 @@ function build(previousFileSizes) {
       }
       const messages = formatWebpackMessages(stats.toJson({}, true))
       if (messages.errors.length) {
-        // Only keep the first error. Others are often indicative
-        // of the same problem, but confuse the reader with noise.
+        Only keep the first error. Others are often indicative
+        of the same problem, but confuse the reader with noise.
         if (messages.errors.length > 1) {
           messages.errors.length = 1
         }
@@ -125,7 +125,7 @@ function build(previousFileSizes) {
           process.env.CI.toLowerCase() !== 'false') &&
         messages.warnings.length
       ) {
-        //console.log(
+        console.log(
           chalk.yellow(
             '\nTreating warnings as errors because process.env.CI = true.\n' +
               'Most CI servers set it automatically.\n'
