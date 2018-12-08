@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
-import apiUrl from '../apiConfig'
+import apiUrl from './apiConfig'
 
 
 class WodNew extends React.Component {
