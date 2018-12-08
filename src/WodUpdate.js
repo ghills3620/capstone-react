@@ -2,6 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import apiUrl from '../apiConfig'
 
 class WodUpdate extends React.Component {
   constructor (props) {

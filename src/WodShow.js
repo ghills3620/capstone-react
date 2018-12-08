@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Navbar,  MenuItem, NavItem, NavDropdown, Nav, Table } from 'react-bootstrap'
+import apiUrl from '../apiConfig'
 
 
 class WodShow extends React.Component {
