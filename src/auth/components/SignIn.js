@@ -21,7 +21,7 @@ class SignIn extends Component {
 
   signIn = event => {
     event.preventDefault()
-    console.log(event)
+    //console.log(event)
 
     const { email, password } = this.state
     const { flash, history, setUser } = this.props

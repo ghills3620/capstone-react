@@ -17,7 +17,7 @@ class WodUpdate extends React.Component {
 
   handleChange = (event) => {
 
-    // console.log(event.target.value)
+    // //console.log(event.target.value)
 
     // const name = event.target.name
     // const value = event.target.value
@@ -34,7 +34,7 @@ class WodUpdate extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(event)
+    //console.log(event)
     const wod = this.state.wod
     const id = this.props.match.params.id
     const user = this.props.user

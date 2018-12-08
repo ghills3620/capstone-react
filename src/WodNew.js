@@ -22,7 +22,7 @@ class WodNew extends React.Component {
 
   handleChange = (event) => {
 
-    // console.log(event.target.value)
+    // //console.log(event.target.value)
 
     // const name = event.target.name
     // const value = event.target.value
@@ -52,12 +52,12 @@ class WodNew extends React.Component {
         result: wod.result
       }},
     })
-    console.log(this.baseWod)
+    //console.log(this.baseWod)
     this.setState(this.baseWod)
     // this.setState({flashMessage: 'Wod Created', wod: this.baseWod})
     this.props.history.push('/wods')
 
-    // console.log(response)
+    // //console.log(response)
   }
 
   render() {
