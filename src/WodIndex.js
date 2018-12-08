@@ -12,10 +12,10 @@ class WodIndex extends React.Component {
   async componentDidMount(event) {
     const response = await axios ({
       method:'get',
-      url: 'http://localhost:4741/wods',
+      url: 'http://https://arcane-woodland-92648.herokuapp.com/:4741/wods',
     })
     this.setState({wods:response.data.wods})
-    // axios.get('http://localhost:4741/wods')
+    // axios.get('http://https://arcane-woodland-92648.herokuapp.com/:4741/wods')
     // .then(response => {
     //   this.setState({wods:response.data.wods})
     // })
@@ -28,7 +28,7 @@ class WodIndex extends React.Component {
     console.log(user)
     const response = await axios ({
       method:'delete',
-      url: `http://localhost:4741/wods/${id}`,
+      url: `http://https://arcane-woodland-92648.herokuapp.com/:4741/wods/${id}`,
       headers: {
         'Authorization': `Token token=${user.token}`
       }})
