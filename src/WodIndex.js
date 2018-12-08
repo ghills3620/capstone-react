@@ -17,7 +17,7 @@ class WodIndex extends React.Component {
     this.setState({wods:response.data.wods})
     // axios.get('http://localhost:4741/wods')
     // .then(response => {
-    //   this.setState({movies:response.data.movies})
+    //   this.setState({wods:response.data.wods})
     // })
     // console.log(response.data.wods)
   }

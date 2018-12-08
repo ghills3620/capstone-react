@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:4741'
+const apiUrl = 'https://arcane-woodland-92648.herokuapp.com/'
 
 export const handleErrors = res => {
   if (res.ok) {

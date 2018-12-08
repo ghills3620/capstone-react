@@ -25,7 +25,7 @@ class WodNew extends React.Component {
 
     // const name = event.target.name
     // const value = event.target.value
-    // const newWod = Object.assign(this.state.movie)
+    // const newWod = Object.assign(this.state.wod)
     //
     // newWod[name]= value
 
