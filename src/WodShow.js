@@ -19,7 +19,7 @@ class WodShow extends React.Component {
 
   async componentDidMount() {
     const id = this.props.match.params.id
-    const response = await axios.get(`http://localhost:4741/wods/${id}`)
+    const response = await axios.get(`${apiUrl}/wods/${id}`)
     const wod = response.data.wod
     this.setState({
       wod: wod

@@ -39,7 +39,7 @@ class WodUpdate extends React.Component {
     const user = this.props.user
     const response = await axios ({
       method:'put',
-      url: `http://localhost:4741/wods/${id}`,
+      url: `${apiUrl}/wods/${id}`,
       headers: {
         'Authorization': `Token token=${user.token}`
       },
@@ -55,7 +55,7 @@ class WodUpdate extends React.Component {
 
   async  componentDidMount() {
     const id = this.props.match.params.id
-    const response = await axios.get(`http://localhost:4741/wods/${id}`)
+    const response = await axios.get(`${apiUrl}/wods/${id}`)
     this.setState({wod:response.data.wod})
   }
 

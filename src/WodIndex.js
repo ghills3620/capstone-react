@@ -12,10 +12,10 @@ class WodIndex extends React.Component {
   async componentDidMount(event) {
     const response = await axios ({
       method:'get',
-      url: 'http://localhost:4741/wods',
+      url: `${apiUrl}/wods`,
     })
     this.setState({wods:response.data.wods})
-    // axios.get('http://localhost:4741/wods')
+    // axios.get(`${apiUrl}/wods`)
     // .then(response => {
     //   this.setState({wods:response.data.wods})
     // })
@@ -28,7 +28,7 @@ class WodIndex extends React.Component {
     console.log(user)
     const response = await axios ({
       method:'delete',
-      url: `http://localhost:4741/wods/${id}`,
+      url: `${apiUrl}/wods/${id}`,
       headers: {
         'Authorization': `Token token=${user.token}`
       }})
