@@ -32,10 +32,12 @@ class WodIndex extends React.Component {
       url: `${apiUrl}/wods/${id}`,
       headers: {
         'Authorization': `Token token=${user.token}`
-      }})
+      }
+    })
 
     const updatedWodsList = this.state.wods.filter(wod => wod.id !== id)
     this.setState({wods:updatedWodsList})
+
   }
 
 
