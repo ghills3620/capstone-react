@@ -4,7 +4,7 @@ const apiUrls = {
   development: 'http://localhost:4741'
 }
 
-if (window.location.hostname === 'https://arcane-woodland-92648.herokuapp.com/') {
+if (window.location.hostname === 'localhost') {
   apiUrl = apiUrls.development
 } else {
   apiUrl = apiUrls.production
