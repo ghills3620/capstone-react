@@ -1,7 +1,7 @@
 let apiUrl
 const apiUrls = {
   production: 'https://fierce-ravine-81275.herokuapp.com/',
-  development: 'http://https://arcane-woodland-92648.herokuapp.com/:4741'
+  development: 'https://arcane-woodland-92648.herokuapp.com/:4741'
 }
 
 if (window.location.hostname === 'https://arcane-woodland-92648.herokuapp.com/') {

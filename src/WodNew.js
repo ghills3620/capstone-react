@@ -42,7 +42,7 @@ class WodNew extends React.Component {
     const user = this.props.user
     const response = await axios ({
       method:'post',
-      url: 'http://https://arcane-woodland-92648.herokuapp.com/:4741/wods',
+      url: 'https://arcane-woodland-92648.herokuapp.com/:4741/wods',
       headers: {
         'Authorization': `Token token=${user.token}`
       },
