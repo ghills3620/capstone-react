@@ -42,7 +42,7 @@ class App extends Component {
 
 
 
-  render () {
+  render (props) {
     const { flashMessage, flashType, user } = this.state
 
     return (

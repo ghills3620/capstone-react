@@ -20,13 +20,11 @@ class WodIndex extends React.Component {
     // .then(response => {
     //   this.setState({wods:response.data.wods})
     // })
-    // //console.log(response.data.wods)
   }
 
   async handleDelete(event, id) {
     event.preventDefault()
     const user = this.props.user
-    //console.log(user)
     const response = await axios ({
       method:'delete',
       url: `${apiUrl}/wods/${id}`,

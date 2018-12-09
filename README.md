@@ -1,3 +1,5 @@
+[!(https://imgur.com/a/85lhMYO)](https://ghills3620.github.io/capstone-react/#/)
+
 ## What is Wodify?
 
 If you've ever been to a CrossFit box (aka gym) and taken part in a WOD (workout of the day), you'll know that the whiteboard is an integral part of the whole experience: It's where the WOD is written out beforehand and where everyone's results are recorded afterward. So why get rid of whiteboards at CrossFit facilities all over the country? Because, they say, they've got something better. Needless to say, we're intrigued.
@@ -19,7 +21,23 @@ Now, this isn't the first program out there designed for CrossFitters to use for
 [Bootstrap](https://getbootstrap.com/)
   - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery.
 
-## Unsolved Problems/User Stories
+## User Stories
+
+Version 1
+
+Non signed in User
+
+ - As a non signed in user , I want to be able to sign up with user name, email, and password
+ - As a non signed in user, I want to view other users result from past workouts
+ - As a signed in user, I want to be able to sign in with user name and password
+
+Signed In User
+
+ - As a signed in user, I want to be able to add in, view, and update current/past workouts to my account.
+ - As a signed in user, I want to view other users result from current/past workouts
+
+
+## Unsolved Problems
 
 Version 1
  - STYLING!!!!
@@ -104,6 +122,52 @@ Can I take 15 extra minutes to learn more about this and get it to work, so that
 code is more adaptable for future itterations. Also lets not forget I didnt have to
 do this alone, fellow devs, stack overflow, and google were all at my finger tips
 help. Ive learned alot during this process and feel more confident after finishing.
+
+## Catalog of Routes:
+## Authentication
+
+| Verb   | URI Pattern            | Controller#Action |
+|--------|------------------------|-------------------|
+| POST   | `/sign-up`             | `users#signup`    |
+| POST   | `/sign-in`             | `users#signin`    |
+| PATCH  | `/change-password/`    | `users#changepw`  |
+| DELETE | `/sign-out/`           | `users#signout`   |
+| GET    | `/users/:id`           | `users#show`      |
+
+
+## Wods
+
+| Verb   | URI Pattern       | Controller#Action  |
+|--------|-------------------|--------------------|
+| POST   | `/wods/new`       |  `wods#create`     |
+| GET    | `/wods`           |  `wods#index`      |
+| PATCH  | `/wods/:id/update`|  `wods#update`     |
+| DELETE | `/wods/:id`       |  `wods#destroy`    |
+| SHOW   | `/wods/:id/show`  |  `wods#show`       |
+
+## Installation Guide
+
+## Front End Installation (this repo)
+1. Fork and Clone this repository.
+2. Install dependencies with `npm install`.
+3. Run the development server with npm start.
+
+## Back end Installation
+(https://arcane-woodland-92648.herokuapp.com/)
+
+1. Fork and Clone this repository.
+2. Install dependencies with `bundle install.`
+3. Run the development server with npm start.
+4. Create a .env for sensitive settings (`touch .env`).
+5. Generate new development and test secrets (`bundle exec rails secret`).
+6. Store them in .env with keys `SECRET_KEY_BASE_<DEVELOPMENT|TEST>` respectively.
+7. Set up a Heroku server
+8. Set up your database with the following:
+  - `bin/rails db:drop` (if it already exists)
+  - `bin/rails db:create`
+  - `bin/rails db:migrate`
+  - `bin/rails db:seed` (seeds the mountains csv in lib/seed)
+9. Run the API server with `bin/rails server` or `bundle exec rails server.`
 
 ## Links
 
