@@ -1,4 +1,4 @@
-[!(https://imgur.com/a/85lhMYO)](https://ghills3620.github.io/capstone-react/#/)
+[![Wodify](https://imgur.com/a/85lhMYO)](https://ghills3620.github.io/capstone-react/#/)
 
 ## What is Wodify?
 
