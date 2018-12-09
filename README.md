@@ -1,5 +1,5 @@
 
-![Image of App](src/Screen Shot 2018-12-08 at 7.42.59 PM.png)
+![Image of App](Screen Shot 2018-12-08 at 7.42.59 PM.png)
 
 ## What is Wodify?
 
